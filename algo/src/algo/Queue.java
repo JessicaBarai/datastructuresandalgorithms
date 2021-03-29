@@ -5,10 +5,10 @@ public class Queue {
 	//FIFO, O(1)
 	//arrays of primitive types are all 0, not null at the beginning
 	
-	private int[] q;
-	private int front;
-	private int rear;
-	private int length;
+	protected int[] q;
+	protected int front;
+	protected int rear;
+	protected int length;
 	
 	public Queue(int length) {
 		this.length=length;
@@ -19,16 +19,16 @@ public class Queue {
 	
 	
 	//If rear is pointing to end of array, we have filled all spots
-	private boolean isFull() {
+	protected boolean isFull() {
 		return rear==(length-1);
 	}
 	
-	private boolean isEmpthy() {
+	protected boolean isEmpthy() {
 		return front==-1 && rear==-1;
 		
 	}
 	
-	private boolean lastElement() {
+	protected boolean lastElement() {
 		return rear==front;
 		
 	}
