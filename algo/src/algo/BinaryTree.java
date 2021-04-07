@@ -39,7 +39,7 @@ public class BinaryTree {
 
 	}
 	
-	
+	//using a queue data structure is same as recursive function likte this
 		public static void printGivenLevel(Node<Integer> root, int level)
 		{
 		    if (root == null)
@@ -120,9 +120,12 @@ public class BinaryTree {
 		bt.add(5);
 		bt.add(7);
 		bt.add(9);
+		bt.add(1);
+		bt.add(5);
+		bt.add(10);
 
 		// bt.traverseInOrder(bt.root);
-		printGivenLevel(bt.root,3);
+		printGivenLevel(bt.root,4);
 		//bt.traverseLevel(bt.root);
 		
 		//getLevel(bt,3);
