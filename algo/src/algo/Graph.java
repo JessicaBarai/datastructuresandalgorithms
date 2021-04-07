@@ -1,12 +1,13 @@
 package algo;
 
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 public class Graph { 
 	 public static final double INFINITY = Double.MAX_VALUE; 
-	 private Map<String,Vertex> vertexMap = 
-	 new HashMap<String,Vertex>( ); 
+	 private Map<String,Vertex> vertexMap = new HashMap<String,Vertex>( ); 
 	 /** 
 	 * Add a new edge to the graph. 
 	 */ 
@@ -23,9 +24,10 @@ public class Graph {
 	 */ 
 	 private Vertex getVertex( String vertexName ) { 
 	 Vertex v = vertexMap.get( vertexName ); 
-	 if( v == null ) 
+	 if( v == null ) {
 	 v = new Vertex( vertexName ); 
 	 vertexMap.put( vertexName, v ); 
+	 }
 	 return v; 
 	 
 	 } 
@@ -39,16 +41,23 @@ public class Graph {
 	 v.reset( ); 
 	 }
 	 
-	 public void dijkstra( String startName ){ ... } 
+	 public void dijkstra( String startName ){
+		clearAll();
+		//TODO- this algo 
+		 
+	 } 
 	 
 	 // uppgift 7a 
 	 // Compute the subgraph of this graph where all nodes are 
 	 // reacheable from startNode within at most maxDist distance. 
-	 // Nodes at longer distance are omitted. 
-	 public Graph computeSubGraph(String startNode,double maxDist) ... 
-	 
+	 // Nodes at longer distance are omitted.  
+	 public Graph computeSubGraph(String startNode,double maxDist) {
+		 dijkstra(startNode);
+		 Graph g= new Graph();
+		 
+	 }
 	 // uppgift 7b 
 	 // Compute a list of all nodes at the exact 
 	 // unweighted distance d from startNode 
-	 public List<String> nodesAtUWD(String startNode,int d) ... 
+	 public List<String> nodesAtUWD(String startNode,int d){}
 	} 

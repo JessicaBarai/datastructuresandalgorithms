@@ -3,7 +3,7 @@ package algo;
 import java.util.LinkedList;
 import java.util.List;
 
-class Vertex {  
+class Vertex  {  
 	 public String name; // Vertex name 
 	 public List<Edge> adj; // Adjacent vertices 
 	 public double dist; // Cost 
@@ -21,7 +21,8 @@ class Vertex {
 	 public void reset( )  { 
 		 
 		 dist = Graph.INFINITY;
-		 prev = null; scratch = 0;
+		 prev = null; 
+		 scratch = 0;
 	 
 	 } 
 	} 
