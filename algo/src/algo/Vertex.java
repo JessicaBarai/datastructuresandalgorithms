@@ -13,7 +13,7 @@ class Vertex  {
 	public Vertex( String nm ) {
 		 name = nm; 
 		 adj = new LinkedList<Edge>( ); 
-		 reset( ); 
+		 reset(); 
 	 
 	 
 	 } 

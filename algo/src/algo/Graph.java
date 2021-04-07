@@ -52,8 +52,20 @@ public class Graph {
 	 // reacheable from startNode within at most maxDist distance. 
 	 // Nodes at longer distance are omitted.  
 	 public Graph computeSubGraph(String startNode,double maxDist) {
+		 //changes this graph so that shortes path from startNode to
+		 //every other node in graph with shortest edges 
 		 dijkstra(startNode);
 		 Graph g= new Graph();
+		 g.getVertex(startNode);
+		 for(Vertex v: this.vertexMap.values()) {
+			for(Edge e: v.adj) {
+				if(e.cost<=maxDist) {
+					g.addEdge(v.name, e.dest.name, e.cost);
+					
+				}
+				
+			}
+		 }
 		 
 	 }
 	 // uppgift 7b 
