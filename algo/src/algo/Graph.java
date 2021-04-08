@@ -44,9 +44,18 @@ public class Graph {
 	 
 	 public void dijkstra( String startName ){
 		clearAll();
-		//TODO- this algo 
-		 
-	 } 
+		Vertex start= getVertex(startName);
+		 start.dist=0;
+		 List<Vertex> visited= new ArrayList<>();
+		for(Edge e :start.adj) {
+			if(e.dest.dist<=e.cost) {
+				e.dest.dist=e.cost+start.dist;
+				e.dest.prev=start;
+			}
+		}
+		
+		
+		}
 	 
 	 // uppgift 7a 
 	 // Compute the subgraph of this graph where all nodes are 
@@ -120,7 +129,7 @@ public class Graph {
 	 
 	 
 	 public static void main(String args[]) {
-		 
+		 Graph graph= new Graph();
 		 
 	 }
 	 
