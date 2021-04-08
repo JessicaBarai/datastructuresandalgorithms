@@ -1,5 +1,6 @@
 package algo;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -52,24 +53,79 @@ public class Graph {
 	 // reacheable from startNode within at most maxDist distance. 
 	 // Nodes at longer distance are omitted.  
 	 public Graph computeSubGraph(String startNode,double maxDist) {
-		 //changes this graph so that shortes path from startNode to
-		 //every other node in graph with shortest edges 
+		 //the algo is adding info to every vertex in the graph, dist and prev for ex
 		 dijkstra(startNode);
 		 Graph g= new Graph();
+		 //add startNode to graph g
 		 g.getVertex(startNode);
 		 for(Vertex v: this.vertexMap.values()) {
-			for(Edge e: v.adj) {
-				if(e.cost<=maxDist) {
-					g.addEdge(v.name, e.dest.name, e.cost);
-					
-				}
-				
-			}
+			 //info in dist is provided from algorithm above, dist gives us the cost from startNode to v
+			 if(v.dist<=maxDist) {
+				 //when we know that total dist from startNode to v does'nt exceed limit check the edge from v to next node
+				 //if cost does'nt exceed limit add that edge to graph g
+				 for(Edge e: v.adj) {
+						if(e.cost<=maxDist) {
+							g.addEdge(v.name, e.dest.name, e.cost);
+							
+						}
+						
+					}
+				 
+			 }
+			
 		 }
+		 return g;
 		 
 	 }
 	 // uppgift 7b 
 	 // Compute a list of all nodes at the exact 
 	 // unweighted distance d from startNode 
-	 public List<String> nodesAtUWD(String startNode,int d){}
+	 public List<String> nodesAtUWD(String startNode,int d){
+		
+		 dijkstra(startNode);
+		 List<String> list= new ArrayList<>();
+		 for(Vertex v: this.vertexMap.values()) {
+			 //v is startNode
+			 //should not return startNode itself if d==0
+			 if(v.name.equals(startNode) && d==0) {
+				 list.add(v.name);
+				 return list;
+			 }
+			 if(v.prev.name.equals(startNode) && d==1) {
+				list.add(v.name);
+				 
+			 }
+			 if(v.prev.prev.name.equals(startNode) && d==2) {
+				 list.add(v.name);
+				 
+			 }
+			 if(v.prev.prev.prev.equals(startNode) && d==3) {
+				 list.add(v.name);
+				 
+			 }
+			
+				 
+				 
+			 
+			 
+		 }
+		 
+		 return list;
+		 
+	 }
+	 
+	 
+	 
+	 
+	 
+	 
+	 public static void main(String args[]) {
+		 
+		 
+	 }
+	 
+	 
+	 
+	 
+	 
 	} 
